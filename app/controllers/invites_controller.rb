@@ -5,6 +5,8 @@ class InvitesController < ApplicationController
    		if @invite.save
       		InviteMailer.new_user_invite(@invite, new_user_registration_path(:invite_token => @invite.token)).deliver 
       		redirect_to root_path
+   		else
+   			redirect_to root_path
    		end
 	end
 	private
